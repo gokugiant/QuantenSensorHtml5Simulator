@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>QuantenSensorHtml5Simulator</title>
+</head>
+
+<body>
+
+	<header>
+		<nav>
+			<ul>
+				<li>Simulation</li>
+			</ul>
+		</nav>
+	</header>
+	
+	<div>
+		<canvas id="quantenSensor" width="500" height="500">
+	</div>
+	<script type="text/javascript">
+		var c = document.getElementById("quantenSensor");
+		var ctx = c.getContext("2d");
+		//ctx.fillStyle = "#FF0000";
+		//ctx.fillRect(20, 20, 150, 100);
+		
+		ctx.font = "15px Arial";
+		ctx.fillText("Unfiltered:", 50, 40);
+		
+		ctx.fillText("Amplified:", 180, 40);
+		var isBright = false;
+		
+		var alterLightIntensity = function() {
+			
+		  if(isBright){
+			ctx.fillStyle = "#FF0000";
+			
+		  }else{
+			ctx.fillStyle = "#F00000";
+		  }
+		  
+		  ctx.fillRect(50, 50, 100, 50);
+		  
+		  if(isBright){
+			ctx.fillStyle = "#FF0000";
+			
+		  }else{
+			ctx.fillStyle = "#0A0000";
+		  }
+		  
+		  ctx.fillRect(180, 50, 100, 50);
+		  
+		  isBright = !isBright;
+		}
+		
+		const alterLightTimeout = setInterval(alterLightIntensity, 100);
+
+	</script>
+
+	<footer>
+		<p>QuantenFabLab Project</p>
+	</footer>
+
+</body>
+
+</html>
